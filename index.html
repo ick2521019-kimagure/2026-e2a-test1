@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="市川市・行徳駅前4丁目周辺で和菓子を探す方へ。季節の菓子や手土産選びの楽しみを紹介します。">
+        <title>行徳、和菓子めぐり | 市川市</title>
+        <style>
+            :root {
+                color-scheme: light;
+                --ink: #292b23;
+                --muted: #65675c;
+                --paper: #f7f5ef;
+                --green: #284b3c;
+                --red: #b94b37;
+                --line: #d8d6ca;
+            }
+
+            * { box-sizing: border-box; }
+
+            body {
+                margin: 0;
+                background: var(--paper);
+                color: var(--ink);
+                font-family: "Hiragino Maru Gothic ProN", "M PLUS Rounded 1c", "Yu Gothic", "Meiryo", sans-serif;
+                line-height: 1.8;
+            }
+
+            a { color: inherit; }
+
+            .topbar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 20px;
+                max-width: 1180px;
+                margin: auto;
+                padding: 18px 32px;
+                font-family: sans-serif;
+                font-size: 13px;
+            }
+
+            .brand { font-weight: 700; letter-spacing: .08em; }
+            .topbar a { text-decoration-thickness: 1px; text-underline-offset: 4px; }
+
+            .hero {
+                position: relative;
+                min-height: 560px;
+                overflow: hidden;
+                background: var(--green);
+                color: #fffdf6;
+            }
+
+            .hero::before {
+                position: absolute;
+                inset: 0 0 0 43%;
+                background:
+                    repeating-linear-gradient(135deg, transparent 0 17px, #ffffff10 18px 19px),
+                    linear-gradient(145deg, #335d49, #1d382e);
+                content: "";
+                opacity: .9;
+            }
+
+            .hero-illustration {
+                position: absolute;
+                z-index: 1;
+                right: 5%;
+                bottom: 34px;
+                width: min(43vw, 510px);
+                height: auto;
+                filter: drop-shadow(0 22px 18px #10271d66);
+            }
+
+            .hero-inner {
+                position: relative;
+                z-index: 1;
+                max-width: 1180px;
+                margin: auto;
+                padding: 100px 32px 112px;
+            }
+
+            .eyebrow, .section-label {
+                font-family: sans-serif;
+                font-size: 12px;
+                font-weight: 700;
+                letter-spacing: .16em;
+                text-transform: uppercase;
+            }
+
+            .eyebrow { color: #e7c89a; }
+
+            h1 {
+                max-width: 620px;
+                margin: 20px 0;
+                font-size: clamp(42px, 6vw, 76px);
+                font-weight: 500;
+                line-height: 1.25;
+            }
+
+            .hero p {
+                max-width: 490px;
+                margin: 0;
+                color: #e9eee7;
+                font-size: 16px;
+            }
+
+            .hero-link {
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                margin-top: 30px;
+                padding: 12px 0;
+                border-bottom: 1px solid #d5bd98;
+                color: #fffdf6;
+                font-family: sans-serif;
+                font-size: 14px;
+                text-decoration: none;
+            }
+
+            .hero-link span { color: #e7c89a; font-size: 20px; }
+
+            main { max-width: 1040px; margin: auto; padding: 0 32px; }
+
+            .intro {
+                display: grid;
+                grid-template-columns: 1fr 1.3fr;
+                gap: 72px;
+                padding: 92px 0 82px;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .section-label { color: var(--red); }
+            h2 { margin: 12px 0 18px; font-size: 30px; font-weight: 500; line-height: 1.5; }
+            .intro p { margin: 0; color: var(--muted); }
+
+            .spots { padding: 72px 0 78px; border-bottom: 1px solid var(--line); }
+            .spots-heading { max-width: 650px; margin-bottom: 30px; }
+            .spots-heading p { margin: 0; color: var(--muted); }
+
+            .spot-list {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 28px;
+                margin-top: 30px;
+            }
+
+            .spot { padding-top: 18px; border-top: 2px solid var(--green); }
+            .spot-kicker { color: var(--red); font-family: sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; }
+            .spot h3 { margin: 8px 0; font-size: 22px; font-weight: 500; }
+            .spot p { margin: 0; color: var(--muted); font-size: 14px; }
+            .spot a { display: inline-block; margin-top: 12px; color: var(--green); font-family: sans-serif; font-size: 13px; text-underline-offset: 4px; }
+
+            .guide { padding: 76px 0 84px; }
+            .guide-heading { max-width: 600px; margin-bottom: 32px; }
+
+            .guide-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                border-top: 1px solid var(--line);
+                border-bottom: 1px solid var(--line);
+            }
+
+            .guide-item { padding: 24px; }
+            .guide-item:nth-child(even) { border-left: 1px solid var(--line); }
+            .guide-item:nth-child(n + 3) { border-top: 1px solid var(--line); }
+            .guide-item b { display: block; margin-bottom: 8px; color: var(--green); font-size: 19px; font-weight: 500; }
+            .guide-item p { margin: 0; color: var(--muted); font-size: 14px; }
+
+            .find {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 24px;
+                padding: 34px 38px;
+                background: #e9e9df;
+            }
+
+            .find h2 { margin: 0 0 4px; font-size: 22px; }
+            .find p { margin: 0; color: var(--muted); font-size: 13px; }
+
+            .map-link {
+                flex: 0 0 auto;
+                padding: 12px 18px;
+                background: var(--green);
+                color: white;
+                font-family: sans-serif;
+                font-size: 13px;
+                text-decoration: none;
+            }
+
+            .notice { margin: 18px 0 70px; color: var(--muted); font-family: sans-serif; font-size: 12px; }
+
+            footer {
+                padding: 20px 32px;
+                border-top: 1px solid var(--line);
+                color: var(--muted);
+                font-family: sans-serif;
+                font-size: 12px;
+                text-align: center;
+            }
+
+            @media (min-width: 701px) and (max-width: 900px) {
+                .hero-inner { padding: 80px 32px 300px; }
+                .hero-illustration { right: 6%; bottom: 20px; width: min(44vw, 340px); }
+            }
+
+            @media (max-width: 700px) {
+                .topbar { padding: 14px 20px; }
+                .hero { min-height: 550px; }
+                .hero::before { inset: 36% 0 0 0; opacity: .55; }
+                .hero-inner { padding: 64px 22px 240px; }
+                .hero-illustration { right: 3%; bottom: 12px; width: min(58vw, 250px); }
+                .hero p { max-width: 420px; }
+                main { padding: 0 22px; }
+                .intro { grid-template-columns: 1fr; gap: 18px; padding: 62px 0; }
+                .spots { padding: 58px 0; }
+                .spot-list { grid-template-columns: 1fr; gap: 24px; }
+                .guide { padding: 58px 0; }
+                .guide-grid { grid-template-columns: 1fr; }
+                .guide-item, .guide-item + .guide-item { padding: 20px 0; border-left: 0; }
+                .guide-item + .guide-item { border-top: 1px solid var(--line); }
+                .find { align-items: flex-start; flex-direction: column; padding: 26px 22px; }
+                .notice { margin-bottom: 48px; }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="brand">ICHIKAWA / GYOTOKU</div>
+            <a href="https://www.google.com/maps/search/%E5%B8%82%E5%B7%9D%E5%B8%82%20%E8%A1%8C%E5%BE%B3%E9%A7%85%E5%89%8D4%E4%B8%81%E7%9B%AE%20%E5%92%8C%E8%8F%93%E5%AD%90%E5%B1%8B">周辺のお店を探す ↗</a>
+        </header>
+
+        <section class="hero">
+            <div class="hero-inner">
+                <div class="eyebrow">A small trip for Japanese sweets</div>
+                <h1>行徳で見つける、<br>特別な和菓子。</h1>
+                <p>市川市・行徳駅前4丁目…そこは隠れた和菓子の名所。お散歩がてらお気に入りのお菓子を見つけてみてはいかがでしょうか？</p>
+                <a class="hero-link" href="https://www.google.com/maps/search/%E5%B8%82%E5%B7%9D%E5%B8%82%20%E8%A1%8C%E5%BE%B3%E9%A7%85%E5%89%8D4%E4%B8%81%E7%9B%AE%20%E5%92%8C%E8%8F%93%E5%AD%90%E5%B1%8B">行徳駅前4丁目周辺の和菓子店 <span>→</span></a>
+            </div>
+            <svg class="hero-illustration" viewBox="0 0 560 390" role="img" aria-labelledby="wagashi-title wagashi-description" xmlns="http://www.w3.org/2000/svg">
+                <title id="wagashi-title">皿にのった三色団子</title>
+                <desc id="wagashi-description">桜色、白色、抹茶色の団子を一本の串に刺したイラスト</desc>
+                <defs>
+                    <radialGradient id="dango-pink" cx="33%" cy="25%" r="78%">
+                        <stop offset="0" stop-color="#fff1e9"/>
+                        <stop offset=".38" stop-color="#f3c1b4"/>
+                        <stop offset=".76" stop-color="#df8c82"/>
+                        <stop offset="1" stop-color="#a9504a"/>
+                    </radialGradient>
+                    <radialGradient id="dango-white" cx="32%" cy="24%" r="80%">
+                        <stop offset="0" stop-color="#fffef8"/>
+                        <stop offset=".48" stop-color="#f7edda"/>
+                        <stop offset=".82" stop-color="#e3d2b7"/>
+                        <stop offset="1" stop-color="#bca98b"/>
+                    </radialGradient>
+                    <radialGradient id="dango-green" cx="32%" cy="23%" r="80%">
+                        <stop offset="0" stop-color="#e7edcc"/>
+                        <stop offset=".45" stop-color="#b4c28a"/>
+                        <stop offset=".82" stop-color="#81945e"/>
+                        <stop offset="1" stop-color="#536641"/>
+                    </radialGradient>
+                    <linearGradient id="bamboo" x1="0" y1="1" x2="1" y2="0">
+                        <stop offset="0" stop-color="#8d5c31"/>
+                        <stop offset=".45" stop-color="#e3bb78"/>
+                        <stop offset="1" stop-color="#986637"/>
+                    </linearGradient>
+                    <linearGradient id="plate" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#fffdf5"/>
+                        <stop offset="1" stop-color="#e8dcc5"/>
+                    </linearGradient>
+                    <filter id="soft-shadow" x="-30%" y="-30%" width="160%" height="170%">
+                        <feGaussianBlur stdDeviation="7"/>
+                    </filter>
+                </defs>
+
+                <ellipse cx="284" cy="332" rx="216" ry="29" fill="#10271d" opacity=".28" filter="url(#soft-shadow)"/>
+                <ellipse cx="280" cy="306" rx="230" ry="60" fill="#d9c9ae"/>
+                <ellipse cx="280" cy="294" rx="230" ry="57" fill="url(#plate)" stroke="#d7c8ad" stroke-width="3"/>
+                <ellipse cx="280" cy="286" rx="204" ry="39" fill="#fffaf0" stroke="#eee3d1" stroke-width="2"/>
+                <path d="M89 296c47 28 337 31 382 0" fill="none" stroke="#d0bea0" stroke-width="3" stroke-linecap="round"/>
+                <ellipse cx="274" cy="279" rx="145" ry="13" fill="#8c6b4c" opacity=".18" filter="url(#soft-shadow)"/>
+
+                <path d="M133 323 422 39" stroke="#754b2d" stroke-width="11" stroke-linecap="round"/>
+                <path d="M133 319 420 39" stroke="url(#bamboo)" stroke-width="7" stroke-linecap="round"/>
+                <path d="m414 46 12-12" stroke="#f3d9a8" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+
+                <g>
+                    <circle cx="190" cy="267" r="55" fill="#7e453d" opacity=".2" filter="url(#soft-shadow)"/>
+                    <circle cx="190" cy="258" r="54" fill="url(#dango-green)" stroke="#718252" stroke-width="1.5"/>
+                    <ellipse cx="174" cy="238" rx="15" ry="8" fill="#fff" opacity=".32" transform="rotate(-35 174 238)"/>
+                    <ellipse cx="203" cy="281" rx="24" ry="8" fill="#4f623d" opacity=".12"/>
+                </g>
+                <g>
+                    <circle cx="270" cy="188" r="55" fill="#7e453d" opacity=".2" filter="url(#soft-shadow)"/>
+                    <circle cx="270" cy="179" r="54" fill="url(#dango-white)" stroke="#dfd1b8" stroke-width="1.5"/>
+                    <ellipse cx="254" cy="159" rx="15" ry="8" fill="#fff" opacity=".62" transform="rotate(-35 254 159)"/>
+                    <ellipse cx="284" cy="202" rx="23" ry="8" fill="#bba98b" opacity=".1"/>
+                </g>
+                <g>
+                    <circle cx="350" cy="109" r="55" fill="#7e453d" opacity=".2" filter="url(#soft-shadow)"/>
+                    <circle cx="350" cy="100" r="54" fill="url(#dango-pink)" stroke="#cf8077" stroke-width="1.5"/>
+                    <ellipse cx="334" cy="80" rx="15" ry="8" fill="#fff" opacity=".48" transform="rotate(-35 334 80)"/>
+                    <ellipse cx="364" cy="123" rx="23" ry="8" fill="#9d4945" opacity=".1"/>
+                </g>
+
+                <path d="M72 278c21-15 33-38 34-62-23 4-42 17-51 37-6 13 3 27 17 25Z" fill="#637d54" stroke="#496341" stroke-width="2"/>
+                <path d="M490 281c-22-12-36-34-40-58 24 2 44 12 55 31 8 12-1 27-15 27Z" fill="#637d54" stroke="#496341" stroke-width="2"/>
+            </svg>
+        </section>
+
+        <main>
+            <section class="intro">
+                <div>
+                    <div class="section-label">Neighborhood guide</div>
+                    <h2>ふだんの道に、<br>和菓子の楽しみを。</h2>
+                </div>
+                <p>行徳駅前4丁目のあたりで和菓子屋を探すなら、駅前から住宅街へ少し足をのばしてみるのもおすすめです。定番の餅菓子や団子はもちろん、季節限定の生菓子との出会いも和菓子めぐりの醍醐味。散歩の途中に立ち寄って、その日の気分に合うひと品を見つけてください。</p>
+            </section>
+
+            <section class="spots">
+                <div class="spots-heading">
+                    <div class="section-label">Nearby spots</div>
+                    <h2>和菓子と一緒に、街をひと歩き。</h2>
+                    <p>買いものの前後に立ち寄れる公園と、少し遠回りして訪れたい川辺をご紹介します。</p>
+                </div>
+                <div class="spot-list">
+                    <article class="spot">
+                        <div class="spot-kicker">NEAR THE STATION</div>
+                        <h3>行徳駅前公園</h3>
+                        <p>行徳駅前4丁目にある公園。和菓子を買ったあとにひと休みしたいときや、近所をのんびり歩きたいときに立ち寄りやすいスポットです。お昼ごろがおすすめです。</p>
+                        <a href="https://www.google.com/maps/search/%E8%A1%8C%E5%BE%B3%E9%A7%85%E5%89%8D%E5%85%AC%E5%9C%92">地図で場所を見る ↗</a>
+                    </article>
+                    <article class="spot">
+                        <div class="spot-kicker">A LITTLE FURTHER</div>
+                        <h3>江戸川放水路・行徳可動堰周辺</h3>
+                        <p>駅前から少し足をのばした先にある水辺。川沿いの開けた景色を楽しみながら散策できます。歩きやすい靴で、天候や現地の案内を確認してお出かけください。夕方がおすすめです。</p>
+                        <a href="https://www.google.com/maps/search/%E8%A1%8C%E5%BE%B3%E5%8F%AF%E5%8B%95%E5%A0%B0">行徳可動堰を地図で見る ↗</a>
+                    </article>
+                </div>
+            </section>
+
+            <section class="guide">
+                <div class="guide-heading">
+                    <div class="section-label">Find your favorite</div>
+                    <h2>選ぶ時間も、和菓子のたのしみ。</h2>
+                </div>
+                <div class="guide-grid">
+                    <article class="guide-item">
+                        <b>季節の生菓子・行徳固有の和菓子</b>
+                        <p>色や形に季節を映した上生菓子。店頭で出会ったら、一期一会の味わいを楽しんで。
+                            実は行徳にはバラが多くかかわっています。バラ由来の最中なども探してみてください。</p>
+                    </article>
+                    <article class="guide-item">
+                        <b>気軽なおやつ・週末のご褒美に</b>
+                        <p>団子や大福など、毎日のおやつにうれしい定番菓子。種類や出来上がり時間はお店ごとに異なります。
+                            また、普段は食べないような少しリッチな和菓子を週末のご褒美にも、どうでしょうか？
+                        </p>
+                    </article>
+                    <article class="guide-item">
+                        <b>手土産・贈りもの</b>
+                        <p>日持ちする焼き菓子や詰め合わせは贈りものにも。用途や人数を伝えて相談してみましょう。
+                            相談することで新たな出会いがあるかもしれません。</p>
+                    </article>
+                    <article class="guide-item">
+                        <b>昔ながらの駄菓子</b>
+                        <p>和菓子屋のほかにも駄菓子屋も点在しています。昔食べたあのお菓子があるやもしれません。</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="find">
+                <div>
+                    <h2>今日立ち寄れるお店を探す</h2>
+                    <p>営業日・営業時間や取扱商品は、訪問前に各店舗の最新情報をご確認ください。</p>
+                </div>
+                <a class="map-link" href="https://www.google.com/maps/search/%E5%B8%82%E5%B7%9D%E5%B8%82%20%E8%A1%8C%E5%BE%B3%E9%A7%85%E5%89%8D4%E4%B8%81%E7%9B%AE%20%E5%92%8C%E8%8F%93%E5%AD%90%E5%B1%8B" target="_blank" rel="noopener noreferrer">地図で和菓子店を見る ↗</a>
+            </section>
+            <p class="notice">※このページは行徳駅前4丁目周辺で和菓子店を探すための地域紹介です。掲載店を特定した一覧ではありません。</p>
+        </main>
+
+        <footer>市川市・行徳駅前4丁目周辺の和菓子案内</footer>
+    </body>
+</html>
